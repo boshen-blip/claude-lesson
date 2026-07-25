@@ -22,6 +22,7 @@ Opening `index.html` directly via `file://` mostly works too, but query-string b
 - `car.html` — single reusable detail-page template for every car; reads `?id=` from the URL.
 - `js/cars-data.js` — single source of truth for car inventory data.
 - `js/main.js` / `js/car-detail.js` — render the grid and detail views from `cars-data.js`, and inject per-car SEO metadata (title, meta description, Open Graph, JSON-LD) on `car.html`.
+- `js/whatsapp-widget.js` — floating WhatsApp chat button shown on every page.
 - `css/styles.css` — shared stylesheet for both pages.
 - `robots.txt` / `sitemap.xml` / `favicon.svg` — SEO/crawl basics.
 
