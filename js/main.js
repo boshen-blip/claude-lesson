@@ -17,6 +17,7 @@ function renderCarGrid() {
       <div class="car-card-body">
         ${car.featured ? '<span class="featured-badge">Featured</span>' : ""}
         <div class="car-card-title">${car.year} ${car.make} ${car.model}</div>
+        <div class="car-card-meta car-card-plate"><span class="plate-badge">${car.plateNumber}</span></div>
         <div class="car-card-meta">${car.bodyType} &middot; ${car.mileage.toLocaleString()} km &middot; ${car.transmission}</div>
         <div class="car-card-meta">COE expires ${car.coeExpiry}</div>
         <div class="car-card-price">${formatPrice(car.price)}</div>
@@ -75,6 +76,14 @@ function wireWhatsappLink() {
   link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 }
 
+function wireChecklistWhatsappLink() {
+  const link = document.getElementById("checklist-whatsapp-link");
+  if (!link) return;
+  const text = encodeURIComponent("Hi, could you walk me through the 10-point buying checklist for one of your cars?");
+  link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+}
+
 renderCarGrid();
 wireContactForm();
 wireWhatsappLink();
+wireChecklistWhatsappLink();

@@ -7,6 +7,8 @@
   --color-primary: #1e3a5f;
   --color-primary-hover: #16293f;
   --color-dark: #14161a;
+  --color-stamp: #a8331f;
+  --font-mono: ui-monospace, "SF Mono", "Roboto Mono", "Courier New", monospace;
   --radius: 10px;
   --max-width: 1100px;
 }
@@ -67,15 +69,32 @@ body {
 
 /* Hero */
 .hero {
-  background: linear-gradient(135deg, #1e3a5f, #3d6b99);
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 14px),
+    linear-gradient(135deg, #1e3a5f, #3d6b99);
   color: #fff;
   text-align: center;
   padding: 90px 24px;
 }
 
+.hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #bcd2e8;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 5px 14px;
+  margin-bottom: 18px;
+}
+
 .hero h1 {
   font-size: 2.6rem;
   margin: 0 0 12px;
+  letter-spacing: -0.01em;
 }
 
 .hero p {
@@ -202,18 +221,60 @@ body {
   color: var(--color-primary);
 }
 
+/* Signature element: a stylized Singapore vehicle-plate chip for plate numbers */
+.plate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: #111;
+  border: 1.5px solid #111;
+  border-radius: 4px;
+  padding: 3px 8px 3px 6px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.plate-badge::before {
+  content: "SG";
+  font-size: 0.62em;
+  font-weight: 800;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 2px;
+  padding: 2px 4px;
+  letter-spacing: 0;
+}
+
+.car-card-plate {
+  margin-top: 2px;
+}
+
+/* Signature element: a certification-stamp look for the featured-listing flag */
 .featured-badge {
-  display: inline-block;
+  display: inline-flex;
   align-self: flex-start;
-  background: #f0a500;
-  color: #2b1c00;
-  font-size: 0.72rem;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-stamp);
+  border: 1.5px dashed var(--color-stamp);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 9px;
-  border-radius: 999px;
-  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+  padding: 3px 10px 3px 8px;
+  margin-bottom: 6px;
+  transform: rotate(-2deg);
+}
+
+.featured-badge::before {
+  content: "\2605";
+  font-weight: 900;
+  font-size: 0.85em;
 }
 
 /* About */
@@ -233,6 +294,69 @@ body {
 .about-item h3 {
   margin-top: 0;
   color: var(--color-primary);
+}
+
+/* Checklist (buyer's guide) */
+.checklist-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.checklist-intro {
+  max-width: 640px;
+  color: var(--color-text-muted);
+}
+
+.checklist-grid {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px 28px;
+}
+
+.checklist-grid li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.checklist-mark {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--color-stamp);
+  border-radius: 4px;
+  color: var(--color-stamp);
+  font-weight: 900;
+  font-size: 0.8rem;
+  margin-top: 1px;
+}
+
+.checklist-grid strong {
+  display: block;
+  font-size: 0.98rem;
+}
+
+.checklist-grid span {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.checklist-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+  margin-top: 8px;
 }
 
 /* Contact form */

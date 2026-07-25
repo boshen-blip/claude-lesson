@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boshen-blip.github.io/claude-lesson/sitemap.xml

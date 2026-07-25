@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#1e3a5f"/>
+  <rect x="10" y="30" width="44" height="16" rx="3" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+  <text x="32" y="42" font-family="ui-monospace, 'SF Mono', 'Roboto Mono', monospace" font-size="14" font-weight="700" fill="#111111" text-anchor="middle">SGX</text>
+</svg>

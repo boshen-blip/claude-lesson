@@ -18,11 +18,12 @@ Opening `index.html` directly via `file://` mostly works too, but query-string b
 
 ## Structure
 
-- `index.html` — homepage: hero, car listing grid, about section, contact form.
+- `index.html` — homepage: hero, car listing grid, about section, buying checklist, contact form.
 - `car.html` — single reusable detail-page template for every car; reads `?id=` from the URL.
 - `js/cars-data.js` — single source of truth for car inventory data.
-- `js/main.js` / `js/car-detail.js` — render the grid and detail views from `cars-data.js`.
+- `js/main.js` / `js/car-detail.js` — render the grid and detail views from `cars-data.js`, and inject per-car SEO metadata (title, meta description, Open Graph, JSON-LD) on `car.html`.
 - `css/styles.css` — shared stylesheet for both pages.
+- `robots.txt` / `sitemap.xml` / `favicon.svg` — SEO/crawl basics.
 
 See [CLAUDE.md](CLAUDE.md) for more on the architecture and Singapore-specific domain conventions (COE, plate numbers, WhatsApp contact, etc).
 
