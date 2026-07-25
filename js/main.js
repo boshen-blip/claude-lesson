@@ -1,6 +1,6 @@
 // Renders the car grid on index.html and wires up the contact form.
 
-const CONTACT_EMAIL = "contact@boshenauto.com"; // TODO: replace with your real email
+const CONTACT_EMAIL = "boshen.goh@gmail.com";
 const WHATSAPP_NUMBER = "6591234567"; // TODO: replace with your real WhatsApp number (65 + 8-digit SG number)
 
 function formatPrice(price) {

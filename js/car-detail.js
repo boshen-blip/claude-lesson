@@ -1,6 +1,6 @@
 // Reads ?id= from the URL and renders the matching car's full details on car.html.
 
-const CONTACT_EMAIL = "contact@boshenauto.com"; // TODO: replace with your real email
+const CONTACT_EMAIL = "boshen.goh@gmail.com";
 const WHATSAPP_NUMBER = "6591234567"; // TODO: replace with your real WhatsApp number (65 + 8-digit SG number)
 
 function formatPrice(price) {
