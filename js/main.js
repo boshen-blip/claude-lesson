@@ -1,7 +1,13 @@
 // Renders the car grid on index.html and wires up the contact form.
 
 const CONTACT_EMAIL = "boshen.goh@gmail.com";
-const WHATSAPP_NUMBER = "6591234567"; // TODO: replace with your real WhatsApp number (65 + 8-digit SG number)
+const WHATSAPP_NUMBER = "6583396593";
+
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+}
 
 function formatPrice(price) {
   return price.toLocaleString("en-SG", { style: "currency", currency: "SGD", maximumFractionDigits: 0 });
@@ -27,6 +33,30 @@ function renderCarGrid() {
   `).join("");
 }
 
+function validateContactForm(form) {
+  const fields = [
+    { input: form.name, label: "Name", check: (v) => v.length > 0 },
+    { input: form.email, label: "Email", check: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { input: form.message, label: "Message", check: (v) => v.length > 0 },
+  ];
+
+  let firstInvalid = null;
+  for (const field of fields) {
+    const value = field.input.value.trim();
+    const valid = field.check(value);
+    field.input.classList.toggle("invalid", !valid);
+    if (!valid && !firstInvalid) firstInvalid = field;
+  }
+
+  if (firstInvalid) {
+    firstInvalid.input.focus();
+    return firstInvalid.label === "Email" && firstInvalid.input.value.trim().length > 0
+      ? "Please enter a valid email address."
+      : `Please fill in your ${firstInvalid.label.toLowerCase()}.`;
+  }
+  return null;
+}
+
 function wireContactForm() {
   const form = document.getElementById("contact-form");
   const note = document.getElementById("contact-note");
@@ -34,6 +64,12 @@ function wireContactForm() {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    const validationError = validateContactForm(form);
+    if (validationError) {
+      note.textContent = validationError;
+      return;
+    }
 
     const submitButton = form.querySelector("button[type=submit]");
     submitButton.disabled = true;
@@ -60,6 +96,7 @@ function wireContactForm() {
       if (data.success === "false") throw new Error(data.message || "Request failed");
 
       note.textContent = "Thanks! Your message has been sent — we'll get back to you soon.";
+      speak("Thank you for your submission. We will get back in 3 business days.");
       form.reset();
     } catch (err) {
       note.textContent = "Sorry, something went wrong. Please try WhatsApp instead.";
