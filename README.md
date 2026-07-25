@@ -4,6 +4,8 @@ A static marketing website for a Singapore used-car listings business. Plain HTM
 
 Live site: https://boshen-blip.github.io/claude-lesson/
 
+![Boshen Auto homepage screenshot](screenshots/homepage.png)
+
 ## Running locally
 
 Serve the directory root with any static file server and open `index.html`:
