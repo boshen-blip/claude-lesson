@@ -31,19 +31,40 @@ function wireContactForm() {
   const note = document.getElementById("contact-note");
   if (!form) return;
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
+    const submitButton = form.querySelector("button[type=submit]");
+    submitButton.disabled = true;
+    note.textContent = "Sending...";
 
-    const subject = `Website inquiry from ${name}`;
-    const body = `${message}\n\n— ${name} (${email})`;
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          message: form.message.value.trim(),
+          _subject: "New website inquiry - Boshen Auto",
+        }),
+      });
 
-    window.location.href = mailtoUrl;
-    note.textContent = "Opening your email client to send this message...";
+      if (!response.ok) throw new Error("Request failed");
+
+      const data = await response.json();
+      if (data.success === "false") throw new Error(data.message || "Request failed");
+
+      note.textContent = "Thanks! Your message has been sent — we'll get back to you soon.";
+      form.reset();
+    } catch (err) {
+      note.textContent = "Sorry, something went wrong. Please try WhatsApp instead.";
+    } finally {
+      submitButton.disabled = false;
+    }
   });
 }
 

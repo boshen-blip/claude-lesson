@@ -58,7 +58,7 @@
     <section id="contact" class="section contact-section">
       <h2>Get In Touch</h2>
       <p>Interested in a car, or have a question? Send a message and we'll get back to you.</p>
-      <form id="contact-form" class="contact-form">
+      <form id="contact-form" class="contact-form" action="https://formsubmit.co/boshen.goh@gmail.com" method="POST">
         <div class="form-row">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required />
@@ -71,6 +71,8 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" required></textarea>
         </div>
+        <input type="hidden" name="_subject" value="New website inquiry - Boshen Auto" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
         <button type="submit" class="btn btn-primary">Send Message</button>
         <p id="contact-note" class="contact-note"></p>
       </form>
