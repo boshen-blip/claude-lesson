@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boshen Auto — Quality Used Cars in Singapore</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Boshen Auto</a>
+      <nav class="main-nav">
+        <a href="#inventory">Inventory</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Find Your Next Car</h1>
+      <p>Hand-picked, well-maintained vehicles at honest prices, right here in Singapore. Full COE and mileage details upfront — no pressure, just good cars.</p>
+      <div class="hero-cta-row">
+        <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
+        <a id="whatsapp-link" href="#" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="inventory" class="section">
+      <h2>Available Cars</h2>
+      <div id="car-grid" class="car-grid">
+        <!-- Car cards are rendered here by js/main.js -->
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <h2>Why Buy From Us</h2>
+      <div class="about-grid">
+        <div class="about-item">
+          <h3>Verified Condition</h3>
+          <p>Every car is inspected and comes with an honest description of its mileage, history, and condition.</p>
+        </div>
+        <div class="about-item">
+          <h3>Fair Pricing</h3>
+          <p>No haggling games — prices are set fairly from the start based on market value and vehicle condition.</p>
+        </div>
+        <div class="about-item">
+          <h3>Direct Contact</h3>
+          <p>Speak directly with the seller. Ask questions, arrange a viewing, or make an offer with no middlemen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <h2>Get In Touch</h2>
+      <p>Interested in a car, or have a question? Send a message and we'll get back to you.</p>
+      <form id="contact-form" class="contact-form">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p id="contact-note" class="contact-note"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Boshen Auto &middot; 123 Sin Ming Avenue, Singapore 575625 &middot; +65 9123 4567</p>
+      <p>&copy; 2026 Boshen Auto. All cars sold as-is unless otherwise stated. Prices exclude transfer fees.</p>
+    </div>
+  </footer>
+
+  <script src="js/cars-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
